@@ -27,42 +27,42 @@ const Gallery = () => {
       id: 1,
       src: "./media/beadmaking.jpeg",
       alt: "Beads",
-      title: "Youth Empowerment",
-      description: "Following Edward Athiyo's legacy as the first Karimojong to receive formal education, our foundation has built 12 schools in remote Karamoja communities, providing quality education to over 2,000 children who previously had no access to learning opportunities.",
-      location: "Moroto District, Karamoja",
+      title: "Beaded Crafts ",
+      description: "A close-up shot of several handmade beaded bracelets and necklaces laid out on a white surface, showcasing colorful and intricate patterns.These are sold to increase income generation in the community",
+      location: "Nakale, Karamoja",
       date: "September 2024",
-      category: "Education",
+      category: "Empowerment",
      
     },
     {
       id: 2,
       src: "./media/edakbeadmaking.jpeg",
       alt: "beadmaking process",
-      title: "Clean Water Access Program",
-      description: "Honoring Edward Athiyo's commitment to community development, we've installed 45 boreholes and water systems across rural villages, ensuring families have access to clean, safe drinking water year-round.",
-      location: "Kotido & Abim Districts",
+      title: "Young Girls and Women Empowerment",
+      description: "A group of people, including girls, women and children, learning how to make beads as part of their empowerment process.",
+      location: "Nakale, Karamoja",
       date: "August 2024",
-      category: "Water & Sanitation",
+      category: " Empowerment",
       
     },
     {
       id: 3,
       src: "./media/edakculuture.jpeg",
-      alt: "Healthcare workers treating patients",
-      title: "Mobile Health Clinics",
-      description: "Our mobile medical units bring essential healthcare services to remote pastoralist communities, providing immunizations, maternal care, and treatment for common diseases in areas where medical facilities are scarce.",
-      location: "Kaabong & Nakapiripirit",
+      alt: "Culture",
+      title: "Back to the roots ",
+      description: "An elder in the commuity showing younger generations how some of the prominent traditional meals are prepared.",
+      location: "Nakale,Karamoja",
       date: "October 2024",
-      category: "Healthcare",
+      category: "Cultural Conservation",
      
     },
     {
       id: 4,
       src: "./media/communityengagement1.jpeg",
-      alt: "Women learning business skills",
-      title: "Women's Economic Empowerment",
-      description: "Inspired by Edward Athiyo's entrepreneurial spirit as a successful businessman, we train women in business skills, providing microfinance and supporting them to start sustainable enterprises that benefit their families and communities.",
-      location: "Multiple Districts, Karamoja",
+      alt: " learning business skills",
+      title: " Economic Empowerment",
+      description: "Inspired by Edward Athiyo's entrepreneurial spirit as a successful businessman, the community members are trained in business skills,saving habits and supporting them to start sustainable enterprises that benefit their families and communities.",
+      location: "Nakale, Karamoja",
       date: "July 2024",
       category: "Economic Development",
      
@@ -83,10 +83,10 @@ const Gallery = () => {
       src: "./media/comunity3.jpeg",
       alt: "Youth in technical training",
       title: "Youth Skills Development",
-      description: "Recognizing Edward Athiyo's belief in education and progress, we provide technical and vocational training to young people, equipping them with marketable skills in carpentry, tailoring, mechanics, and digital literacy.",
-      location: "Moroto Technical Institute",
+      description: "Recognizing Edward Athiyo's belief in education and progress, community engagements to train and equip young people with marketable skills.",
+      location: "Nakale, Karamoja",
       date: "November 2024",
-      category: "Skills Training",
+      category: "Community Impact",
     
     }
   ];
@@ -150,8 +150,9 @@ const Gallery = () => {
             Our foundation works to transform communities through education, healthcare, and sustainable development.
           </p>
           <div className="flex flex-wrap justify-center gap-2 text-sm">
-            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Education</span>
-            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">Healthcare</span>
+            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Empowerment</span>
+            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">Cultural Conservation</span>
+            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">Agriculture</span>
             <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full">Economic Development</span>
             <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full">Community Impact</span>
           </div>

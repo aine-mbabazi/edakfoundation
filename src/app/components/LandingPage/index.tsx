@@ -1,6 +1,5 @@
 
 
-
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -19,6 +18,16 @@ const LandingPage = () => {
 
   const scrollToContent = () => {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+  };
+
+  const scrollToGallery = () => {
+    const gallerySection = document.getElementById('gallery');
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
@@ -92,7 +101,10 @@ const LandingPage = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-amber-400 to-orange-400 text-gray-900 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-amber-400/50">
+              <button 
+                onClick={scrollToGallery}
+                className="group relative px-8 py-4 bg-gradient-to-r from-amber-400 to-orange-400 text-gray-900 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-amber-400/50"
+              >
                 <span className="relative z-10 flex items-center">
                   Learn More About Our Work
                   <ChevronDown className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

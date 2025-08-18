@@ -105,22 +105,25 @@ const Navbar: React.FC = () => {
     <nav className="bg-white shadow-lg fixed w-full z-50 top-0 left-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center">
-            {/* Logo */}
-            <div className="flex-shrink-0 flex items-center">
-              <img 
-                src="/media/nobackground.png" 
-                alt="EDWARD ATHIYO FOUNDATION Logo" 
-                className="h-10 w-30 rounded-full object-cover mr-3"
-                onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => { 
-                  const target = e.target as HTMLImageElement;
-                  target.onerror = null; 
-                  target.src = "https://placehold.co/40x40/22c55e/ffffff?text=EAF"; 
-                }}
-              />
-              <span className="text-xl font-bold text-gray-800">EDWARD ATHIYO FOUNDATION</span>
-            </div>
-          </div>
+        <div className="flex items-center flex-wrap gap-2 sm:gap-3">
+  {/* Logo */}
+  <div className="flex-shrink-0 flex items-center">
+    <img 
+      src="/media/nobackground.png" 
+      alt="EDWARD ATHIYO FOUNDATION Logo" 
+      className="h-24 w-24 sm:h-14 sm:w-14 rounded-full object-cover flex-shrink-0"
+      // onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => { 
+      //   const target = e.target as HTMLImageElement;
+      //   target.onerror = null; 
+      //   target.src = "https://placehold.co/40x40/22c55e/ffffff?text=EAF"; 
+      // }}
+    />
+    <span className="text-sm sm:text-lg md:text-xl font-bold text-gray-800 ml-2 sm:ml-3 whitespace-nowrap">
+      <span className="hidden sm:inline">EDWARD ATHIYO FOUNDATION</span>
+      <span className="sm:hidden">EAF</span>
+    </span>
+  </div>
+</div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
