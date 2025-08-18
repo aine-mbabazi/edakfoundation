@@ -1,5 +1,7 @@
-import { Award, BookOpen, DollarSign, Globe, Heart, Leaf, Lightbulb, ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+"use client";
+
+import React, { useState } from 'react';
+import { Award, DollarSign, Globe, Heart, Leaf, Lightbulb, ChevronDown, ChevronUp } from "lucide-react";
 
 const Programs = () => {
   const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>({});
