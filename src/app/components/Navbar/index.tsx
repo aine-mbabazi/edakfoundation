@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import Image from 'next/image';
 import { Menu, X, Home, BookOpen, Users, Phone, Camera } from 'lucide-react';
 
 // Define types
@@ -15,13 +16,13 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('home');
 
-  const navItems: NavItem[] = [
+  const navItems: NavItem[] = useMemo(() => [
     { name: 'Home', id: 'home', icon: <Home size={20} /> },
     { name: 'About Us', id: 'about', icon: <Users size={20} /> },
     { name: 'Programs', id: 'programs', icon: <BookOpen size={20} /> },
     { name: 'Gallery', id: 'gallery', icon: <Camera size={20} /> },
     { name: 'Contact Us', id: 'contact', icon: <Phone size={20} /> },
-  ];
+  ], []);
 
   // Smooth scroll to section
   const scrollToSection = (sectionId: string) => {
@@ -105,25 +106,27 @@ const Navbar: React.FC = () => {
     <nav className="bg-white shadow-lg fixed w-full z-50 top-0 left-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-        <div className="flex items-center flex-wrap gap-2 sm:gap-3">
-  {/* Logo */}
-  <div className="flex-shrink-0 flex items-center">
-    <img 
-      src="/media/nobackground.png" 
-      alt="EDWARD ATHIYO FOUNDATION Logo" 
-      className="h-24 w-24 sm:h-14 sm:w-14 rounded-full object-cover flex-shrink-0"
-      // onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => { 
-      //   const target = e.target as HTMLImageElement;
-      //   target.onerror = null; 
-      //   target.src = "https://placehold.co/40x40/22c55e/ffffff?text=EAF"; 
-      // }}
-    />
-    <span className="text-sm sm:text-lg md:text-xl font-bold text-gray-800 ml-2 sm:ml-3 whitespace-nowrap">
-      <span className="hidden sm:inline">EDWARD ATHIYO FOUNDATION</span>
-      <span className="sm:hidden">EAF</span>
-    </span>
-  </div>
-</div>
+          <div className="flex items-center flex-wrap gap-2 sm:gap-3">
+            {/* Logo */}
+            <div className="flex-shrink-0 flex items-center">
+              <Image 
+                src="/media/nobackground.png" 
+                alt="EDWARD ATHIYO FOUNDATION Logo" 
+                width={56}
+                height={56}
+                className="h-24 w-24 sm:h-14 sm:w-14 rounded-full object-cover flex-shrink-0"
+                // onError={(e) => { 
+                //   const target = e.target as HTMLImageElement;
+                //   target.onerror = null; 
+                //   target.src = "https://placehold.co/40x40/22c55e/ffffff?text=EAF"; 
+                // }}
+              />
+              <span className="text-sm sm:text-lg md:text-xl font-bold text-gray-800 ml-2 sm:ml-3 whitespace-nowrap">
+                <span className="hidden sm:inline">EDWARD ATHIYO FOUNDATION</span>
+                <span className="sm:hidden">EAF</span>
+              </span>
+            </div>
+          </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (

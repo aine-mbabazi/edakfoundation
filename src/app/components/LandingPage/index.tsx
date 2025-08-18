@@ -1,8 +1,7 @@
-
-
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ChevronDown, Leaf } from 'lucide-react';
 
 const LandingPage = () => {
@@ -36,14 +35,16 @@ const LandingPage = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src="/media/comunity3.jpeg"
+          <Image 
+            src="/media/community3.jpeg"
             alt="community engagement in Nakale"
+            width={1920}
+            height={1080}
             className="w-full h-full object-cover"
             style={{
               transform: `translateY(${scrollY * 0.5}px)`,
             }}
-            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => { 
+            onError={(e) => { 
               const target = e.target as HTMLImageElement;
               target.onerror = null; 
               target.style.background = 'linear-gradient(135deg, #064e3b, #065f46, #0f766e)';
@@ -96,7 +97,7 @@ const LandingPage = () => {
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-xl">
               Nurturing growth, fostering self-reliance, and transforming lives through 
-              <span className="font-semibold text-emerald-200"> education, culture, and sustainable development</span> in Nakapiripit,Karamoja,Uganda.
+              <span className="font-semibold text-emerald-200"> education, culture, and sustainable development</span> in Nakapiripit, Karamoja, Uganda.
             </p>
 
             {/* CTA Buttons */}

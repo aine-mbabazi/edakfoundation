@@ -1,7 +1,5 @@
-
-
-
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, Heart, Share2 } from 'lucide-react';
 
 interface GalleryItem {
@@ -13,7 +11,6 @@ interface GalleryItem {
   location: string;
   date: string;
   category: string;
-  
 }
 
 const Gallery = () => {
@@ -27,12 +24,11 @@ const Gallery = () => {
       id: 1,
       src: "./media/beadmaking.jpeg",
       alt: "Beads",
-      title: "Beaded Crafts ",
-      description: "A close-up shot of several handmade beaded bracelets and necklaces laid out on a white surface, showcasing colorful and intricate patterns.These are sold to increase income generation in the community",
+      title: "Beaded Crafts",
+      description: "A close-up shot of several handmade beaded bracelets and necklaces laid out on a white surface, showcasing colorful and intricate patterns. These are sold to increase income generation in the community",
       location: "Nakale, Karamoja",
       date: "September 2024",
       category: "Empowerment",
-     
     },
     {
       id: 2,
@@ -42,30 +38,27 @@ const Gallery = () => {
       description: "A group of people, including girls, women and children, learning how to make beads as part of their empowerment process.",
       location: "Nakale, Karamoja",
       date: "August 2024",
-      category: " Empowerment",
-      
+      category: "Empowerment",
     },
     {
       id: 3,
       src: "./media/edakculuture.jpeg",
       alt: "Culture",
-      title: "Back to the roots ",
-      description: "An elder in the commuity showing younger generations how some of the prominent traditional meals are prepared.",
-      location: "Nakale,Karamoja",
+      title: "Back to the roots",
+      description: "An elder in the community showing younger generations how some of the prominent traditional meals are prepared.",
+      location: "Nakale, Karamoja",
       date: "October 2024",
       category: "Cultural Conservation",
-     
     },
     {
       id: 4,
       src: "./media/communityengagement1.jpeg",
-      alt: " learning business skills",
-      title: " Economic Empowerment",
-      description: "Inspired by Edward Athiyo's entrepreneurial spirit as a successful businessman, the community members are trained in business skills,saving habits and supporting them to start sustainable enterprises that benefit their families and communities.",
+      alt: "learning business skills",
+      title: "Economic Empowerment",
+      description: "Inspired by Edward Athiyo's entrepreneurial spirit as a successful businessman, the community members are trained in business skills, saving habits and supporting them to start sustainable enterprises that benefit their families and communities.",
       location: "Nakale, Karamoja",
       date: "July 2024",
       category: "Economic Development",
-     
     },
     {
       id: 5,
@@ -76,7 +69,6 @@ const Gallery = () => {
       location: "Karamoja Sub-region",
       date: "June 2024",
       category: "Agriculture",
-      
     },
     {
       id: 6,
@@ -87,7 +79,6 @@ const Gallery = () => {
       location: "Nakale, Karamoja",
       date: "November 2024",
       category: "Community Impact",
-    
     }
   ];
 
@@ -133,7 +124,6 @@ const Gallery = () => {
         console.log('Error sharing:', err);
       }
     } else {
-      // Fallback for browsers that don't support Web Share API
       await navigator.clipboard.writeText(window.location.href);
       alert('Link copied to clipboard!');
     }
@@ -154,7 +144,7 @@ const Gallery = () => {
             <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">Cultural Conservation</span>
             <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">Agriculture</span>
             <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full">Economic Development</span>
-            <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full">Community Impact</span>
+            <span className="px bunch-3 py-1 bg-orange-100 text-orange-800 rounded-full">Community Impact</span>
           </div>
         </div>
 
@@ -167,9 +157,11 @@ const Gallery = () => {
             >
               {/* Image Container */}
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src={item.src}
                   alt={item.alt}
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer"
                   onClick={() => openModal(item, index)}
                   loading="lazy"
@@ -241,7 +233,6 @@ const Gallery = () => {
                   <span>{item.location}</span>
                   <span>{item.date}</span>
                 </div>
-                
               </div>
             </div>
           ))}
@@ -281,9 +272,11 @@ const Gallery = () => {
               <div className="flex flex-col lg:flex-row items-center justify-center max-w-6xl max-h-[90vh] gap-8">
                 {/* Image */}
                 <div className="flex-1 flex items-center justify-center">
-                  <img
+                  <Image
                     src={selectedImage.src}
                     alt={selectedImage.alt}
+                    width={1200}
+                    height={800}
                     className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
                   />
                 </div>
@@ -320,7 +313,6 @@ const Gallery = () => {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Impact:</span>
-                      
                     </div>
                   </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, PhoneCall, Heart, Shield, Globe, CreditCard, Building, Users, Target } from "lucide-react";
+import { Mail, MapPin, PhoneCall, Heart, Shield, Globe, Target } from "lucide-react";
 import { useState } from "react";
 
 interface DonationAmount {
@@ -34,7 +34,6 @@ const Contacts = () => {
   const handleDonate = () => {
     const donationAmount = selectedDonation || parseFloat(customAmount);
     if (donationAmount && donationAmount > 0) {
-      // For a one-pager, we'll redirect to a PayPal donation link with the amount
       const paypalUrl = `https://www.paypal.com/donate?business=jlorika@gmail.com&amount=${donationAmount}&currency_code=USD`;
       window.location.href = paypalUrl;
     }
@@ -50,7 +49,7 @@ const Contacts = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Join us in transforming communities. Whether you want to donate, volunteer, or partner with us, 
-            we're here to make it happen together.
+            we&apos;re here to make it happen together.
           </p>
         </div>
 
@@ -182,7 +181,7 @@ const Contacts = () => {
             <div className="mt-6 p-4 bg-gray-50 rounded-xl">
               <div className="flex items-start space-x-2">
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Your donation is processed securely through PayPal. You'll receive a confirmation email with your receipt 
+                  Your donation is processed securely through PayPal. You&apos;ll receive a confirmation email with your receipt 
                   and updates on how your contribution is making a difference.
                 </p>
               </div>
