@@ -18,7 +18,7 @@ const About = () => {
       caption: "Improving Community Health"
     },
     {
-      src: "/media/community3.jpeg",
+      src: "/media/comunity3.jpeg",
       alt: "Sustainable Agriculture Training",
       caption: "Sustainable Agriculture Programs"
     },
