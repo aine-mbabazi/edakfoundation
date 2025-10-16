@@ -22,7 +22,7 @@ const Gallery = () => {
   const galleryItems: GalleryItem[] = [
     {
       id: 1,
-      src: "./media/beadmaking.jpeg",
+      src: "/media/beadmaking.jpeg",
       alt: "Beads",
       title: "Beaded Crafts",
       description: "A close-up shot of several handmade beaded bracelets and necklaces laid out on a white surface, showcasing colorful and intricate patterns. These are sold to increase income generation in the community",
@@ -32,7 +32,7 @@ const Gallery = () => {
     },
     {
       id: 2,
-      src: "./media/edakbeadmaking.jpeg",
+      src: "/media/edakbeadmaking.jpeg",
       alt: "beadmaking process",
       title: "Young Girls and Women Empowerment",
       description: "A group of people, including girls, women and children, learning how to make beads as part of their empowerment process.",
@@ -42,7 +42,7 @@ const Gallery = () => {
     },
     {
       id: 3,
-      src: "./media/edakculuture.jpeg",
+      src: "/media/edakculuture.jpeg",
       alt: "Culture",
       title: "Back to the roots",
       description: "An elder in the community showing younger generations how some of the prominent traditional meals are prepared.",
@@ -52,7 +52,7 @@ const Gallery = () => {
     },
     {
       id: 4,
-      src: "./media/communityengagement1.jpeg",
+      src: "/media/communityengagement1.jpeg",
       alt: "learning business skills",
       title: "Economic Empowerment",
       description: "Inspired by Edward Athiyo's entrepreneurial spirit as a successful businessman, the community members are trained in business skills, saving habits and supporting them to start sustainable enterprises that benefit their families and communities.",
@@ -62,7 +62,7 @@ const Gallery = () => {
     },
     {
       id: 5,
-      src: "./media/community2.jpeg",
+      src: "/media/community2.jpeg",
       alt: "Farmers with improved crops",
       title: "Climate-Smart Agriculture",
       description: "Building on Edward Athiyo's agricultural background, our program introduces drought-resistant crops and modern farming techniques to help communities adapt to climate change while maintaining food security.",
@@ -72,7 +72,7 @@ const Gallery = () => {
     },
     {
       id: 6,
-      src: "./media/comunity3.jpeg",
+      src: "/media/comunity3.jpeg",
       alt: "Youth in technical training",
       title: "Youth Skills Development",
       description: "Recognizing Edward Athiyo's belief in education and progress, community engagements to train and equip young people with marketable skills.",

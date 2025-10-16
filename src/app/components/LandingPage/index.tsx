@@ -36,7 +36,7 @@ const LandingPage = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image 
-            src="/media/community3.jpeg"
+            src="/media/comunity3.jpeg"
             alt="community engagement in Nakale"
             width={1920}
             height={1080}
