@@ -18,14 +18,14 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [likedImages, setLikedImages] = useState<Set<number>>(new Set());
 
-  // Edward Athiyo Foundation gallery data - showcasing community impact
   const galleryItems: GalleryItem[] = [
     {
       id: 1,
       src: "/media/beadmaking.jpeg",
       alt: "Beads",
       title: "Beaded Crafts",
-      description: "A close-up shot of several handmade beaded bracelets and necklaces laid out on a white surface, showcasing colorful and intricate patterns. These are sold to increase income generation in the community",
+      description:
+        "A close-up shot of several handmade beaded bracelets and necklaces laid out on a white surface, showcasing colorful and intricate patterns. These are sold to increase income generation in the community.",
       location: "Nakale, Karamoja",
       date: "September 2024",
       category: "Empowerment",
@@ -35,7 +35,8 @@ const Gallery = () => {
       src: "/media/edakbeadmaking.jpeg",
       alt: "beadmaking process",
       title: "Young Girls and Women Empowerment",
-      description: "A group of people, including girls, women and children, learning how to make beads as part of their empowerment process.",
+      description:
+        "A group of people, including girls, women and children, learning how to make beads as part of their empowerment process.",
       location: "Nakale, Karamoja",
       date: "August 2024",
       category: "Empowerment",
@@ -45,7 +46,8 @@ const Gallery = () => {
       src: "/media/edakculuture.jpeg",
       alt: "Culture",
       title: "Back to the roots",
-      description: "An elder in the community showing younger generations how some of the prominent traditional meals are prepared.",
+      description:
+        "An elder in the community showing younger generations how some of the prominent traditional meals are prepared.",
       location: "Nakale, Karamoja",
       date: "October 2024",
       category: "Cultural Conservation",
@@ -55,7 +57,8 @@ const Gallery = () => {
       src: "/media/communityengagement1.jpeg",
       alt: "learning business skills",
       title: "Economic Empowerment",
-      description: "Inspired by Edward Athiyo's entrepreneurial spirit as a successful businessman, the community members are trained in business skills, saving habits and supporting them to start sustainable enterprises that benefit their families and communities.",
+      description:
+        "Inspired by Edward Athiyo's entrepreneurial spirit as a successful businessman, the community members are trained in business skills, saving habits and supporting them to start sustainable enterprises that benefit their families and communities.",
       location: "Nakale, Karamoja",
       date: "July 2024",
       category: "Economic Development",
@@ -65,7 +68,8 @@ const Gallery = () => {
       src: "/media/community2.jpeg",
       alt: "Farmers with improved crops",
       title: "Climate-Smart Agriculture",
-      description: "Building on Edward Athiyo's agricultural background, our program introduces drought-resistant crops and modern farming techniques to help communities adapt to climate change while maintaining food security.",
+      description:
+        "Building on Edward Athiyo's agricultural background, our program introduces drought-resistant crops and modern farming techniques to help communities adapt to climate change while maintaining food security.",
       location: "Karamoja Sub-region",
       date: "June 2024",
       category: "Agriculture",
@@ -75,40 +79,38 @@ const Gallery = () => {
       src: "/media/comunity3.jpeg",
       alt: "Youth in technical training",
       title: "Youth Skills Development",
-      description: "Recognizing Edward Athiyo's belief in education and progress, community engagements to train and equip young people with marketable skills.",
+      description:
+        "Recognizing Edward Athiyo's belief in education and progress, community engagements to train and equip young people with marketable skills.",
       location: "Nakale, Karamoja",
       date: "November 2024",
       category: "Community Impact",
-    }
+    },
   ];
 
   const openModal = (item: GalleryItem, index: number): void => {
     setSelectedImage(item);
     setCurrentIndex(index);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = (): void => {
     setSelectedImage(null);
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = "unset";
   };
 
-  const navigateImage = (direction: 'next' | 'prev'): void => {
-    const newIndex = direction === 'next' 
-      ? (currentIndex + 1) % galleryItems.length
-      : (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    
+  const navigateImage = (direction: "next" | "prev"): void => {
+    const newIndex =
+      direction === "next"
+        ? (currentIndex + 1) % galleryItems.length
+        : (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+
     setCurrentIndex(newIndex);
     setSelectedImage(galleryItems[newIndex]);
   };
 
   const toggleLike = (id: number): void => {
     const newLiked = new Set(likedImages);
-    if (newLiked.has(id)) {
-      newLiked.delete(id);
-    } else {
-      newLiked.add(id);
-    }
+    newLiked.has(id) ? newLiked.delete(id) : newLiked.add(id);
     setLikedImages(newLiked);
   };
 
@@ -118,14 +120,14 @@ const Gallery = () => {
         await navigator.share({
           title: item.title,
           text: item.description,
-          url: window.location.href
+          url: window.location.href,
         });
       } catch (err) {
-        console.log('Error sharing:', err);
+        console.log("Error sharing:", err);
       }
     } else {
       await navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
+      alert("Link copied to clipboard!");
     }
   };
 
@@ -134,17 +136,30 @@ const Gallery = () => {
       <div className="w-full max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Edward Athiyo Foundation</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Edward Athiyo Foundation
+          </h1>
           <p className="text-gray-600 max-w-3xl mx-auto mb-6">
-            Continuing the legacy of Edward Athiyo - pioneering leader, educator, and champion of development in Karamoja. 
-            Our foundation works to transform communities through education, healthcare, and sustainable development.
+            Continuing the legacy of Edward Athiyo — pioneering leader, educator, and
+            champion of development in Karamoja. Our foundation works to transform
+            communities through education, healthcare, and sustainable development.
           </p>
           <div className="flex flex-wrap justify-center gap-2 text-sm">
-            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Empowerment</span>
-            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">Cultural Conservation</span>
-            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">Agriculture</span>
-            <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full">Economic Development</span>
-            <span className="px bunch-3 py-1 bg-orange-100 text-orange-800 rounded-full">Community Impact</span>
+            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
+              Empowerment
+            </span>
+            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">
+              Cultural Conservation
+            </span>
+            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">
+              Agriculture
+            </span>
+            <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full">
+              Economic Development
+            </span>
+            <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full">
+              Community Impact
+            </span>
           </div>
         </div>
 
@@ -166,28 +181,32 @@ const Gallery = () => {
                   onClick={() => openModal(item, index)}
                   loading="lazy"
                 />
-                
+
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+
                 {/* Action Buttons */}
                 <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button
-                    onClick={(e: React.MouseEvent) => {
+                    onClick={(e) => {
                       e.stopPropagation();
                       toggleLike(item.id);
                     }}
                     className={`p-2 rounded-full backdrop-blur-sm transition-colors ${
                       likedImages.has(item.id)
-                        ? 'bg-red-500 text-white'
-                        : 'bg-white/80 text-gray-700 hover:bg-white'
+                        ? "bg-red-500 text-white"
+                        : "bg-white/80 text-gray-700 hover:bg-white"
                     }`}
                     aria-label="Like image"
                   >
-                    <Heart className={`w-4 h-4 ${likedImages.has(item.id) ? 'fill-current' : ''}`} />
+                    <Heart
+                      className={`w-4 h-4 ${
+                        likedImages.has(item.id) ? "fill-current" : ""
+                      }`}
+                    />
                   </button>
                   <button
-                    onClick={(e: React.MouseEvent) => {
+                    onClick={(e) => {
                       e.stopPropagation();
                       handleShare(item);
                     }}
@@ -212,14 +231,21 @@ const Gallery = () => {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className={`px-2 py-1 text-xs rounded-full font-medium ${
-                    item.category === 'Education' ? 'bg-blue-100 text-blue-800' :
-                    item.category === 'Healthcare' ? 'bg-red-100 text-red-800' :
-                    item.category === 'Water & Sanitation' ? 'bg-cyan-100 text-cyan-800' :
-                    item.category === 'Economic Development' ? 'bg-purple-100 text-purple-800' :
-                    item.category === 'Agriculture' ? 'bg-green-100 text-green-800' :
-                    'bg-orange-100 text-orange-800'
-                  }`}>
+                  <span
+                    className={`px-2 py-1 text-xs rounded-full font-medium ${
+                      item.category === "Education"
+                        ? "bg-blue-100 text-blue-800"
+                        : item.category === "Healthcare"
+                        ? "bg-red-100 text-red-800"
+                        : item.category === "Water & Sanitation"
+                        ? "bg-cyan-100 text-cyan-800"
+                        : item.category === "Economic Development"
+                        ? "bg-purple-100 text-purple-800"
+                        : item.category === "Agriculture"
+                        ? "bg-green-100 text-green-800"
+                        : "bg-orange-100 text-orange-800"
+                    }`}
+                  >
                     {item.category}
                   </span>
                 </div>
@@ -251,19 +277,16 @@ const Gallery = () => {
                 <X className="w-6 h-6" />
               </button>
 
-              {/* Navigation Buttons */}
+              {/* Navigation */}
               <button
-                onClick={() => navigateImage('prev')}
+                onClick={() => navigateImage("prev")}
                 className="absolute left-6 top-1/2 transform -translate-y-1/2 z-50 p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors"
-                aria-label="Previous image"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
-
               <button
-                onClick={() => navigateImage('next')}
+                onClick={() => navigateImage("next")}
                 className="absolute right-6 top-1/2 transform -translate-y-1/2 z-50 p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors"
-                aria-label="Next image"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -289,30 +312,38 @@ const Gallery = () => {
                   <p className="text-gray-700 mb-6 leading-relaxed">
                     {selectedImage.description}
                   </p>
-                  
+
                   <div className="space-y-4 mb-6">
                     <div>
-                      <span className={`inline-block px-3 py-1 text-sm rounded-full font-medium mb-3 ${
-                        selectedImage.category === 'Education' ? 'bg-blue-100 text-blue-800' :
-                        selectedImage.category === 'Healthcare' ? 'bg-red-100 text-red-800' :
-                        selectedImage.category === 'Water & Sanitation' ? 'bg-cyan-100 text-cyan-800' :
-                        selectedImage.category === 'Economic Development' ? 'bg-purple-100 text-purple-800' :
-                        selectedImage.category === 'Agriculture' ? 'bg-green-100 text-green-800' :
-                        'bg-orange-100 text-orange-800'
-                      }`}>
+                      <span
+                        className={`inline-block px-3 py-1 text-sm rounded-full font-medium mb-3 ${
+                          selectedImage.category === "Education"
+                            ? "bg-blue-100 text-blue-800"
+                            : selectedImage.category === "Healthcare"
+                            ? "bg-red-100 text-red-800"
+                            : selectedImage.category === "Water & Sanitation"
+                            ? "bg-cyan-100 text-cyan-800"
+                            : selectedImage.category === "Economic Development"
+                            ? "bg-purple-100 text-purple-800"
+                            : selectedImage.category === "Agriculture"
+                            ? "bg-green-100 text-green-800"
+                            : "bg-orange-100 text-orange-800"
+                        }`}
+                      >
                         {selectedImage.category}
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Location:</span>
-                      <span className="font-medium text-gray-900">{selectedImage.location}</span>
+                      <span className="font-medium text-gray-900">
+                        {selectedImage.location}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Date:</span>
-                      <span className="font-medium text-gray-900">{selectedImage.date}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Impact:</span>
+                      <span className="font-medium text-gray-900">
+                        {selectedImage.date}
+                      </span>
                     </div>
                   </div>
 
@@ -321,11 +352,17 @@ const Gallery = () => {
                       onClick={() => toggleLike(selectedImage.id)}
                       className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium transition-colors ${
                         likedImages.has(selectedImage.id)
-                          ? 'bg-red-500 text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          ? "bg-red-500 text-white"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       }`}
                     >
-                      <Heart className={`w-4 h-4 ${likedImages.has(selectedImage.id) ? 'fill-current' : ''}`} />
+                      <Heart
+                        className={`w-4 h-4 ${
+                          likedImages.has(selectedImage.id)
+                            ? "fill-current"
+                            : ""
+                        }`}
+                      />
                       Like
                     </button>
                     <button
@@ -339,7 +376,7 @@ const Gallery = () => {
                 </div>
               </div>
 
-              {/* Image Counter */}
+              {/* Counter */}
               <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white text-sm">
                 {currentIndex + 1} of {galleryItems.length}
               </div>

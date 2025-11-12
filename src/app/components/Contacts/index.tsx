@@ -102,87 +102,95 @@ const Contacts = () => {
               of empowering communities through education, cultural preservation, and sustainable development.
             </p>
 
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Shield className="w-6 h-6 text-green-600" />
-                </div>
-                <p className="text-xs font-medium text-gray-700">Secure</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Globe className="w-6 h-6 text-blue-600" />
-                </div>
-                <p className="text-xs font-medium text-gray-700">Transparent</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Target className="w-6 h-6 text-purple-600" />
-                </div>
-                <p className="text-xs font-medium text-gray-700">Impactful</p>
-              </div>
-            </div>
+            {/* Donation Methods */}
+            <div className="space-y-6">
+              {/* Bank Transfer Option */}
+              <div className="border-2 border-emerald-200 rounded-2xl p-6 bg-emerald-50">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                  <Shield className="w-5 h-5 text-emerald-600 mr-2" />
+                  Bank Transfer (Recommended)
+                </h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* ABSA Uganda */}
+                  <div className="bg-white rounded-xl p-4 shadow-sm">
+                    <div className="flex items-center mb-3">
+                      <Globe className="w-4 h-4 text-emerald-600 mr-2" />
+                      <h5 className="font-semibold text-gray-900">ABSA Bank Uganda</h5>
+                    </div>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Branch:</span>
+                        <span className="font-medium text-gray-900">Acacia Mall, Kampala</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Account Number:</span>
+                        <span className="font-medium text-gray-900">6008938790</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Currency:</span>
+                        <span className="font-medium text-gray-900">UGX</span>
+                      </div>
+                    </div>
+                  </div>
 
-            {/* Donation Amounts */}
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              {donationAmounts.map((donation) => (
-                <button
-                  key={donation.amount}
-                  onClick={() => handleDonationSelect(donation.amount)}
-                  className={`p-4 rounded-xl border-2 text-left transition-all duration-200 hover:shadow-md ${
-                    selectedDonation === donation.amount
-                      ? 'border-emerald-500 bg-emerald-50'
-                      : 'border-gray-200 hover:border-emerald-300'
-                  }`}
+                  {/* ABSA Kenya */}
+                  <div className="bg-white rounded-xl p-4 shadow-sm">
+                    <div className="flex items-center mb-3">
+                      <Globe className="w-4 h-4 text-emerald-600 mr-2" />
+                      <h5 className="font-semibold text-gray-900">ABSA Bank Kenya</h5>
+                    </div>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Branch:</span>
+                        <span className="font-medium text-gray-900">Lavington</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Account Number:</span>
+                        <span className="font-medium text-gray-900">2042568425</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Currency:</span>
+                        <span className="font-medium text-gray-900">USD</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-xs text-gray-600 mt-4 text-center">
+                  Please email us at <a href="mailto:jlorika@gmail.com" className="text-emerald-600 hover:underline">jlorika@gmail.com</a> after making your transfer with your name and transaction reference.
+                </p>
+              </div>
+
+              {/* PayPal Option */}
+              {/* <div className="border-2 border-blue-200 rounded-2xl p-6 bg-blue-50">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                  <Target className="w-5 h-5 text-blue-600 mr-2" />
+                  PayPal (International)
+                </h4>
+                
+                <p className="text-sm text-gray-600 mb-4">
+                  For international donors, you can send donations via PayPal to <a href="mailto:jlorika@gmail.com" className="text-blue-600 hover:underline font-medium">jlorika@gmail.com</a>
+                </p>
+                
+                <a 
+                  href="https://www.paypal.com/donate?business=jlorika@gmail.com&currency_code=USD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md"
                 >
-                  <div className="font-bold text-lg text-gray-900 mb-1">
-                    ${donation.amount}
-                  </div>
-                  <div className="text-xs text-gray-600 leading-tight">
-                    {donation.impact}
-                  </div>
-                </button>
-              ))}
+                  Donate via PayPal
+                </a>
+              </div> */}
             </div>
-
-            {/* Custom Amount */}
-            <div className="mb-6">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Or enter a custom amount
-              </label>
-              <div className="relative">
-                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 font-medium">$</span>
-                <input
-                  type="number"
-                  value={customAmount}
-                  onChange={(e) => handleCustomAmount(e.target.value)}
-                  placeholder="0.00"
-                  min="1"
-                  step="0.01"
-                  className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-                />
-              </div>
-            </div>
-
-            {/* Donate Button */}
-            <button
-              onClick={handleDonate}
-              disabled={!selectedDonation && !customAmount}
-              className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <div className="flex items-center justify-center">
-                <Heart className="w-5 h-5 mr-2" />
-                Donate Now
-              </div>
-            </button>
 
             {/* Footer Note */}
             <div className="mt-6 p-4 bg-gray-50 rounded-xl">
               <div className="flex items-start space-x-2">
+                <Shield className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Your donation is processed securely through PayPal. You&apos;ll receive a confirmation email with your receipt 
-                  and updates on how your contribution is making a difference.
+                  All donations are secure and go directly to supporting our programs in Nakale. 
+                  You&apos;ll receive updates on how your contribution is making a difference in the community.
                 </p>
               </div>
             </div>
