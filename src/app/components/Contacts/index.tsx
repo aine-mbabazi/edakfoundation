@@ -53,7 +53,7 @@ const Contacts = () => {
           </p>
         </div>
 
-        {/* Quick Contact Info Bar */}
+     
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300">
             <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -108,7 +108,7 @@ const Contacts = () => {
               <div className="border-2 border-emerald-200 rounded-2xl p-6 bg-emerald-50">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                   <Shield className="w-5 h-5 text-emerald-600 mr-2" />
-                  Bank Transfer (Recommended)
+                  Bank Transfer 
                 </h4>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
