@@ -108,7 +108,7 @@ const About = () => {
         {/* Hero Header */}
         <div className="relative">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-4 font-montserrat text-gray-900">
+            <h1 className="text-5xl md:text-7xl font-extrabold font-montserrat text-gray-900">
               Edward Athiyo Foundation
             </h1>
             <p className="text-xl md:text-2xl font-light max-w-3xl mx-auto text-gray-700">
@@ -117,62 +117,64 @@ const About = () => {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Mission, Vision and Our Story - Equal Height + Hover Effects */}
-          <div className="flex flex-col lg:flex-row gap-8 mb-12 items-stretch">
-            {/* Mission */}
-            <div className="group relative flex-1">
-              <div className="absolute inset-0 bg-gradient-to-br rounded-3xl transform rotate-1 group-hover:rotate-2"></div>
-              <div className="relative bg-white rounded-3xl p-6 transition-all duration-300 border-t-4 border-orange-500 group-hover:bg-orange-50 flex flex-col justify-between min-h-[420px] sm:min-h-[460px] md:min-h-[480px] h-full shadow-lg hover:shadow-xl transform hover:-translate-y-2">
-                <div>
-                  <div className="flex items-center mb-4">
-                    <h3 className="text-3xl font-bold text-gray-900 font-montserrat">Our Mission</h3>
-                  </div>
-                  <p className="text-gray-900 leading-relaxed text-base font-open-sans">
-                    To empower vulnerable communities in Nakale,Karamoja, particularly women, youth, orphans, and the less advantaged, through holistic development initiatives in education, health, sustainable agriculture, cultural preservation, and economic empowerment, fostering self-reliance and a brighter future.
-                  </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Mission & Vision Side-by-Side Section */}
+        <div className="mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* Mission Card */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-3xl blur opacity-25 group-hover:opacity-30 transition duration-300"></div>
+              <div className="relative bg-white rounded-2xl p-8 shadow-xl h-full">
+                <div className="flex items-center mb-6">
+                
+                  <h3 className="text-3xl font-bold text-gray-900 font-montserrat">Our Mission</h3>
                 </div>
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  To empower vulnerable communities in Nakale, Karamoja, particularly women, youth, orphans, and the less advantaged, through holistic development initiatives in education, health, sustainable agriculture, cultural preservation, and economic empowerment, fostering self-reliance and a brighter future.
+                </p>
               </div>
             </div>
 
-            {/* Vision */}
-            <div className="group relative flex-1">
-              <div className="absolute inset-0 bg-gradient-to-br rounded-3xl transform -rotate-1 group-hover:-rotate-2"></div>
-              <div className="relative bg-white rounded-3xl p-6 transition-all duration-300 border-t-4 border-teal-500 group-hover:bg-teal-50 flex flex-col justify-between min-h-[420px] sm:min-h-[460px] md:min-h-[480px] h-full shadow-lg hover:shadow-xl transform hover:-translate-y-2">
-                <div>
-                  <div className="flex items-center mb-4">
-                    <h3 className="text-3xl font-bold text-gray-900 font-montserrat">Our Vision</h3>
-                  </div>
-                  <p className="text-gray-700 leading-relaxed text-base font-open-sans">
-                    A self-reliant, vibrant, and empowered Nakale society where every individual, regardless of their background, has the opportunity to thrive and contribute to sustainable development.
-                  </p>
+            {/* Vision Card */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-3xl blur opacity-25 group-hover:opacity-30 transition duration-300"></div>
+              <div className="relative bg-white rounded-2xl p-8 shadow-xl h-full">
+                <div className="flex items-center mb-6">
+                  
+                  <h3 className="text-3xl font-bold text-gray-900 font-montserrat">Our Vision</h3>
                 </div>
-              </div>
-            </div>
-
-            {/* Our Story */}
-            <div className="group relative flex-1">
-              <div className="absolute inset-0 bg-gradient-to-br rounded-3xl transform rotate-1 group-hover:rotate-2"></div>
-              <div className="relative bg-white rounded-3xl p-6 border-t-4 border-purple-500 group-hover:bg-purple-50 flex flex-col justify-between min-h-[420px] sm:min-h-[460px] md:min-h-[480px] h-full shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-                <div>
-                  <div className="flex items-start mb-4">
-                    <div className="flex-shrink-0 bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold mr-4">
-                      2019
-                    </div>
-                    <h3 className="text-3xl font-bold text-gray-900 font-montserrat">Our Story</h3>
-                  </div>
-                  <div className="space-y-3 text-gray-800 leading-relaxed text-base font-open-sans">
-                    <p className="font-semibold text-purple-900">
-                      The Edward Athiyo Foundation was established in 2019 following the passing of Edward Lorika Athiyo, a prominent figure in Karamoja and Ugandan history, in July of that year.
-                    </p>
-                    {/* <p>
-                      The Foundation aims to empower, train, guide, and preserve the Karamojong people in Nakale, improving their living conditions and honouring the legacy of the late Edward Lorika Athiyo.
-                    </p> */}
-                  </div>
-                </div>
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  A self-reliant, vibrant, and empowered Nakale society where every individual, regardless of their background, has the opportunity to thrive and contribute to sustainable development.
+                </p>
               </div>
             </div>
           </div>
+
+          {/* Our Story Section */}
+          <div className="relative bg-gradient-to-r from-yellow-700 to-green-700 rounded-3xl overflow-hidden">
+            <div className="relative z-10 p-8 md:p-12">
+              <div className="max-w-3xl">
+                <div className="inline-flex items-center mb-6">
+                  <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-2 rounded-full font-bold text-lg mr-4">
+                    2019
+                  </div>
+                  <h3 className="text-3xl font-bold text-black font-montserrat">Our Story</h3>
+                </div>
+                <p className="text-gray-200 leading-relaxed text-lg">
+                  The Edward Athiyo Foundation was established in 2019 following the passing of Edward Lorika Athiyo, a prominent figure in Karamoja and Ugandan history, in July of that year. The Foundation aims to empower, train, guide, and preserve the Karamojong people in Nakale, improving their living conditions and honouring the legacy of the late Edward Lorika Athiyo.
+                </p>
+              </div>
+            </div>
+            {/* Pattern overlay */}
+            <div 
+              className="absolute inset-0 opacity-10"
+              style={{ 
+                // backgroundImage: `url("${patternSVG}")`,
+                backgroundSize: '60px 60px'
+              }}
+            ></div>
+          </div>
+        </div>
 
           {/* Our Team */}
           <div className="mb-6">
