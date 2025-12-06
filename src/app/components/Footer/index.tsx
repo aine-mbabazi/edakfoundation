@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
             <h3 className="font-montserrat font-bold text-lg mb-4">Follow Us</h3>
             <div className="flex  flex-col space-x-4">
               <a href="https://www.facebook.com/profile.php?id=61582119857265" className="text-gray-300 hover:text-white transition-colors">Facebook</a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">Instagram</a>
+              <a href="https://www.instagram.com/edward_athiyo_foundation/" className="text-gray-300 hover:text-white transition-colors">Instagram</a>
             
             </div>
           </div>
