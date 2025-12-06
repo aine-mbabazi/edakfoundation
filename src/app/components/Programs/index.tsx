@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import {
   Award,
   DollarSign,
@@ -9,26 +8,21 @@ import {
   Heart,
   Leaf,
   Lightbulb,
-  ChevronDown,
-  ChevronUp,
+  CheckCircle,
+  Target,
+  Handshake
 } from "lucide-react";
 
 const Programs = () => {
-  const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>(
-    {}
-  );
-
-  const toggleCard = (index: number) => {
-    setExpandedCards((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
+  const [activeProgram, setActiveProgram] = useState<number>(0);
 
   const programsData = [
     {
       title: "Economic Empowerment & Livelihoods",
       icon: <DollarSign size={40} className="text-[#4CAF50]" />,
+      color: "text-[#4CAF50]",
+      bgColor: "bg-emerald-50",
+      borderColor: "border-emerald-200",
       description:
         "Building capabilities for self-sustainability through skills training, income-generating projects, agricultural development, and support for entrepreneurs.",
       details: [
@@ -44,6 +38,9 @@ const Programs = () => {
     {
       title: "Education & Capacity Building",
       icon: <Lightbulb size={40} className="text-[#2196F3]" />,
+      color: "text-[#2196F3]",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
       description:
         "Fostering knowledge and skills through vocational training, formal education support, adult literacy programs, and research.",
       details: [
@@ -59,6 +56,9 @@ const Programs = () => {
     {
       title: "Health & Social Welfare",
       icon: <Heart size={40} className="text-[#FFC107]" />,
+      color: "text-[#FFC107]",
+      bgColor: "bg-amber-50",
+      borderColor: "border-amber-200",
       description:
         "Promoting well-being through community health initiatives, HIV/AIDS support, orphan care, elderly assistance, and water & sanitation projects.",
       details: [
@@ -74,6 +74,9 @@ const Programs = () => {
     {
       title: "Cultural Preservation & Promotion",
       icon: <Globe size={40} className="text-[#4CAF50]" />,
+      color: "text-[#4CAF50]",
+      bgColor: "bg-purple-50",
+      borderColor: "border-purple-200",
       description:
         "Celebrating and preserving Ugandan heritage through cultural activities, exhibitions, and traditional arts promotion.",
       details: [
@@ -88,6 +91,9 @@ const Programs = () => {
     {
       title: "Environmental Conservation",
       icon: <Leaf size={40} className="text-[#2196F3]" />,
+      color: "text-[#2196F3]",
+      bgColor: "bg-green-50",
+      borderColor: "border-green-200",
       description:
         "Protecting our planet through environmental education, awareness campaigns, and sustainable resource management.",
       details: [
@@ -101,6 +107,9 @@ const Programs = () => {
     {
       title: "Peace & Leadership Development",
       icon: <Award size={40} className="text-[#FFC107]" />,
+      color: "text-[#FFC107]",
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-200",
       description:
         "Fostering harmony and empowering future leaders through peace initiatives and leadership training.",
       details: [
@@ -111,70 +120,107 @@ const Programs = () => {
   ];
 
   return (
-   <section id="programs" className="relative py-16 mt-8 overflow-hidden">
-  <div className="absolute inset-0 z-[-1]">
-    <Image
-      src="/media/edak_background_3.jpeg"
-      alt="Programs background"
-      fill
-      className="object-cover opacity-50"
-      priority
-    />
-    <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/50 to-white/70" />
-  </div>
-
-
-    
+    <section id="programs" className="relative  overflow-hidden bg-white ">
+      {/* Background Pattern */}
+      <div className="absolute inset-0"></div>
+      
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-12 font-montserrat">
-          Our Programs
-        </h2>
+        {/* Header Section */}
+        <div className="text-center mb-2">
+        
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+            Our Programs
+          </h1>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-emerald-400 to-teal-500 mx-auto mb-6 mt-8 rounded-full"></div>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Comprehensive initiatives designed to empower communities, preserve culture, 
+            and foster sustainable development in Karamoja.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {programsData.map((program, index) => (
-            <div
-              key={index}
-              className={`bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-all duration-500 hover:shadow-xl border border-gray-200 ${
-                expandedCards[index] ? "scale-105" : "hover:scale-105"
-              }`}
-            >
-              <div className="mb-4">{program.icon}</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-3 font-montserrat">
-                {program.title}
-              </h3>
-              <p className="text-gray-700 mb-4 font-open-sans">
-                {program.description}
-              </p>
-
+        {/* Program Navigation - Tab Style */}
+        <div className="mb-16">
+          <div className="flex flex-wrap justify-center gap-4 ">
+            {programsData.map((program, index) => (
               <button
-                onClick={() => toggleCard(index)}
-                className="flex items-center gap-2 text-[#4CAF50] hover:text-[#45a049] font-semibold transition-colors duration-200 mb-4"
-              >
-                {expandedCards[index] ? "Show Less" : "Learn More"}
-                {expandedCards[index] ? (
-                  <ChevronUp size={16} />
-                ) : (
-                  <ChevronDown size={16} />
-                )}
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  expandedCards[index] ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                key={index}
+                onClick={() => setActiveProgram(index)}
+                className={`flex items-center gap-3 px-6 py-4 rounded-xl font-medium transition-all duration-300 ${
+                  activeProgram === index
+                    ? `${program.bgColor} ${program.color} border-2 ${program.borderColor} shadow-lg`
+                    : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 hover:shadow-md"
                 }`}
               >
-                <div className="border-t border-gray-200 pt-4">
-                  <ul className="text-left text-gray-700 text-sm list-disc list-inside space-y-2">
-                    {program.details.map((detail, i) => (
-                      <li key={i} className="leading-relaxed">
-                        {detail}
-                      </li>
+                <div className={`p-2 rounded-lg ${activeProgram === index ? 'bg-white/80' : 'bg-gray-100'}`}>
+                  {program.icon}
+                </div>
+                <span className="text-lg font-semibold">{program.title}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Active Program Display */}
+          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+            <div className="p-8 md:p-12">
+              <div className="flex items-center mb-8">
+                <div className={`p-4 rounded-2xl ${programsData[activeProgram].bgColor} mr-6`}>
+                  <div className={`${programsData[activeProgram].color}`}>
+                    {programsData[activeProgram].icon}
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                    {programsData[activeProgram].title}
+                  </h2>
+                  <p className="text-gray-600 text-lg">
+                    Transforming communities through dedicated initiatives
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Program Description */}
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b border-gray-200">
+                    Overview
+                  </h3>
+                  <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                    {programsData[activeProgram].description}
+                  </p>
+                  
+                  {/* Dynamic Impact Focus Section */}
+                  <div className={`bg-gradient-to-br ${programsData[activeProgram].bgColor} rounded-xl p-6 border ${programsData[activeProgram].borderColor}`}>
+                    <div className="flex items-center gap-3 mb-4">
+                      <Handshake className={`w-6 h-6 ${programsData[activeProgram].color}`} />
+                      <h4 className="text-xl font-bold text-gray-900">Impact Focus</h4>
+                    </div>
+                    <p className="text-gray-700">
+                      This program focuses on creating sustainable, long-term impact through 
+                      community engagement, skill development, and resource empowerment.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Program Details */}
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b border-gray-200">
+                    Key Activities
+                  </h3>
+                  <div className="space-y-4">
+                    {programsData[activeProgram].details.map((detail, index) => (
+                      <div
+                        key={index}
+                        className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300"
+                      >
+                        <CheckCircle className={`w-5 h-5 mt-1 flex-shrink-0 ${programsData[activeProgram].color}`} />
+                        <span className="text-gray-800 font-medium">{detail}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

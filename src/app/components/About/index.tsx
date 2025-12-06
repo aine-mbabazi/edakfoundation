@@ -233,7 +233,7 @@ const About = () => {
 
         {/* Our Impact */}
 {/* Our Impact */}
-<div className="w-full bg-white px-8 md:px-16 lg:px-20 py-16 mb-24">
+<div className="w-full bg-white px-8 md:px-16 lg:px-20 py-16">
   <div className="text-center mb-4">
     <h3 className="text-5xl font-bold text-gray-900 font-montserrat mt-4">Our Impact</h3>
     <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto mb-6"></div>
