@@ -1,7 +1,18 @@
 "use client";
 
-import { Mail, MapPin, PhoneCall, Heart, Shield, Globe, Target } from "lucide-react";
+import { Mail, MapPin, PhoneCall, Heart, Shield, Globe, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import dynamic from 'next/dynamic';
+
+// Dynamically import the map to avoid SSR issues
+const Map = dynamic(() => import('./Map'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-64 bg-gray-200 animate-pulse rounded-xl flex items-center justify-center">
+      <div className="text-gray-500">Loading map...</div>
+    </div>
+  )
+});
 
 interface DonationAmount {
   amount: number;
@@ -39,6 +50,15 @@ const Contacts = () => {
     }
   };
 
+  // Coordinates for Nakale, Karamoja, Uganda
+  const nakaleCoords = {
+    lat: 3.5307, // Approximate coordinates for Nakale, Karamoja
+    lng: 34.1553
+  };
+
+  const googleMapsUrl = `https://www.google.com/maps?q=${nakaleCoords.lat},${nakaleCoords.lng}`;
+  const openStreetMapUrl = `https://www.openstreetmap.org/?mlat=${nakaleCoords.lat}&mlon=${nakaleCoords.lng}#map=15/${nakaleCoords.lat}/${nakaleCoords.lng}`;
+
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,42 +73,101 @@ const Contacts = () => {
           </p>
         </div>
 
-     
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300">
-            <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <PhoneCall className="w-6 h-6 text-emerald-600" />
+        {/* Contact Cards with Map */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Contact Information Cards */}
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <PhoneCall className="w-6 h-6 text-emerald-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Call Us</h3>
+              <a href="tel:+256768660867" className="text-gray-600 hover:text-emerald-600 transition-colors text-lg font-medium">
+                +256 768 660867
+              </a>
+              <p className="text-sm text-gray-500 mt-1">Mon-Fri 8AM-6PM EAT</p>
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Call Us</h3>
-            <a href="tel:+256768660867" className="text-gray-600 hover:text-emerald-600 transition-colors">
-              +256 768 660867
-            </a>
-            <p className="text-sm text-gray-500 mt-1">Mon-Fri 8AM-6PM EAT</p>
+            
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
+              <a href="mailto:jlorika@gmail.com" className="text-gray-600 hover:text-emerald-600 transition-colors text-lg font-medium">
+                jlorika@gmail.com
+              </a>
+              <p className="text-sm text-gray-500 mt-1">Response within 24hrs</p>
+            </div>
           </div>
-          
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Mail className="w-6 h-6 text-blue-600" />
+
+          {/* Visit Us Section with Map */}
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                  <MapPin className="w-6 h-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">Visit Us</h3>
+                  <p className="text-gray-600">Nakale, Karamoja, Uganda</p>
+                </div>
+              </div>
+
+              {/* Live Map */}
+              <div className="mb-4">
+                <div className="h-64 rounded-xl overflow-hidden border border-gray-200">
+                  <Map lat={nakaleCoords.lat} lng={nakaleCoords.lng} />
+                </div>
+              </div>
+
+              {/* Directions Links */}
+              <div className="space-y-3">
+                <p className="text-gray-600 text-sm">
+                  Located in the heart of Karamoja region, Nakale is home to the Edward Athiyo Foundation&apos;s community development programs.
+                </p>
+                
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors"
+                  >
+                    <span>View on Google Maps</span>
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                  
+                  <a
+                    href={openStreetMapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors"
+                  >
+                    <span>View on OpenStreetMap</span>
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                </div>
+
+                {/* Address Details */}
+                {/* <div className="bg-gray-50 rounded-lg p-4 mt-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Physical Address:</h4>
+                  <p className="text-gray-700">
+                    Edward Athiyo Foundation<br />
+                    Nakale Village<br />
+                    Karamoja Region<br />
+                    Uganda, East Africa
+                  </p>
+                  <p className="text-sm text-gray-600 mt-2">
+                    *Visits by appointment only. Please contact us before visiting.
+                  </p>
+                </div> */}
+              </div>
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
-            <a href="mailto:jlorika@gmail.com" className="text-gray-600 hover:text-emerald-600 transition-colors">
-              jlorika@gmail.com
-            </a>
-            <p className="text-sm text-gray-500 mt-1">Response within 24hrs</p>
-          </div>
-          
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all duration-300">
-            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <MapPin className="w-6 h-6 text-purple-600" />
-            </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Visit Us</h3>
-            <p className="text-gray-600">Nakale, Karamoja</p>
-            <p className="text-sm text-gray-500 mt-1">Uganda, East Africa</p>
           </div>
         </div>
 
+        {/* Donations Section */}
         <div className="grid grid-cols-1">
-          {/* Donations Section */}
           <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
             <div className="flex items-center mb-6">
               <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
@@ -161,27 +240,6 @@ const Contacts = () => {
                   Please email us at <a href="mailto:jlorika@gmail.com" className="text-emerald-600 hover:underline">jlorika@gmail.com</a> after making your transfer with your name and transaction reference.
                 </p>
               </div>
-
-              {/* PayPal Option */}
-              {/* <div className="border-2 border-blue-200 rounded-2xl p-6 bg-blue-50">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Target className="w-5 h-5 text-blue-600 mr-2" />
-                  PayPal (International)
-                </h4>
-                
-                <p className="text-sm text-gray-600 mb-4">
-                  For international donors, you can send donations via PayPal to <a href="mailto:jlorika@gmail.com" className="text-blue-600 hover:underline font-medium">jlorika@gmail.com</a>
-                </p>
-                
-                <a 
-                  href="https://www.paypal.com/donate?business=jlorika@gmail.com&currency_code=USD"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md"
-                >
-                  Donate via PayPal
-                </a>
-              </div> */}
             </div>
 
             {/* Footer Note */}
