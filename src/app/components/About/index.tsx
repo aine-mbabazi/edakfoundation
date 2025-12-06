@@ -165,9 +165,9 @@ const About = () => {
                     <p className="font-semibold text-purple-900">
                       The Edward Athiyo Foundation was established in 2019 following the passing of Edward Lorika Athiyo, a prominent figure in Karamoja and Ugandan history, in July of that year.
                     </p>
-                    <p>
+                    {/* <p>
                       The Foundation aims to empower, train, guide, and preserve the Karamojong people in Nakale, improving their living conditions and honouring the legacy of the late Edward Lorika Athiyo.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
