@@ -23,6 +23,11 @@ const About = () => {
       name: "Sheila Athiyo",
       position: "Community Project Manager",
       photo: "/media/shiela-edak.jpeg"
+    },
+    {
+      name: "Jordan Longolio Mwaura",
+      position: "Partnernsthips Coordinator",
+      photo: "/media/jordanloriko.jpeg"
     }
   ];
 
@@ -183,7 +188,7 @@ const About = () => {
               <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {teamMembers.map((member, index) => (
                 <div
                   key={index}
