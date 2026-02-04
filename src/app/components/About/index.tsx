@@ -1,8 +1,6 @@
-
-
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 const About = () => {
@@ -14,9 +12,9 @@ const About = () => {
     3: 0
   });
 
-  // Team members data
+  // Team members data 
   const teamMembers = [
-     {
+    {
       name: "Christine Rugasira Athiyo",
       position: "Patron",
       photo: "/media/edak-patron.jpeg"
@@ -46,17 +44,14 @@ const About = () => {
       position: "Partnernsthips Coordinator",
       photo: "/media/jordanloriko.jpeg"
     },
-    
     {
       name: "Janelle Lorika Mwaura",
       position: "Youth Programs Coordinator",
       photo: "/media/edak-youth-programs.jpeg"
     },
-    
-   
   ];
 
-  // Impact categories with multiple images for slideshow
+  // Impact categories 
   const impactCategories = [
     {
       images: [
@@ -69,10 +64,14 @@ const About = () => {
       description: "Empowering through knowledge and learning",
     },
     {
+      // Cultural Tourism
       images: [
-        "/media/community2.jpeg",
+        "/media/cultural_torism_img_2.jpeg",
         "/media/cultural_tourism_2.jpeg",
-        "/media/cultural_tourism_3.jpeg"
+        "/media/cultural_tourism_3.jpeg",
+        "/media/cultural_tourism_img_1.jpeg",
+        "/media/cultural_tourism_img_3.jpeg",
+        "/media/cultural_tourism_img_4.jpeg"
       ],
       alt: "Cultural Tourism Programs",
       title: "Cultural Tourism",
@@ -100,7 +99,7 @@ const About = () => {
     }
   ];
 
-  // Auto-advance slides every 5 seconds
+  // Auto-advance slides 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlides(prev => {
@@ -119,7 +118,7 @@ const About = () => {
   return (
     <section id="about" className="min-h-screen bg-white relative ">
       <div className="relative z-10">
-        {/* Hero Header */}
+        {/* Hero Header*/}
         <div className="relative">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-5xl md:text-7xl font-extrabold font-montserrat text-gray-900">
@@ -143,12 +142,18 @@ const About = () => {
                     <h3 className="text-3xl font-bold text-gray-900 font-montserrat">Our Mission</h3>
                   </div>
                   <p className="text-gray-700 leading-relaxed text-lg">
-                    To empower vulnerable communities in Nakale, Karamoja, particularly women, youth, orphans, and the less advantaged, through holistic development initiatives in education, health, sustainable agriculture, cultural preservation, and economic empowerment, fostering self-reliance and a brighter future.
+                    To empower vulnerable communities in Nakale, Karamoja, particularly women, youth,
+                    orphans, and the less fortunate, through holistic development initiatives in education,
+                    health, sustainable agriculture, cultural preservation, and economic empowerment. We
+                    aim to foster self-reliance and a brighter future by strengthening local leadership,
+                    leveraging partnerships, enhancing access to essential resources, promoting social
+                    inclusion, encouraging environmental stewardship, and building resilient communitydriven systems that create sustainable livelihoods and long-term intergenerational
+                    transformation.
                   </p>
                 </div>
               </div>
 
-              {/* Vision Card */}
+              {/* Vision Card  */}
               <div className="group relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-3xl blur opacity-25 group-hover:opacity-30 transition duration-300"></div>
                 <div className="relative bg-white rounded-2xl p-8 shadow-xl h-full">
@@ -162,7 +167,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* Our Story Section */}
+            {/* Our Story Section  */}
             <div className="relative bg-gradient-to-r from-yellow-700 to-green-700 rounded-3xl overflow-hidden">
               <div className="relative z-10 p-8 md:p-12">
                 <div className="max-w-3xl">
@@ -173,21 +178,31 @@ const About = () => {
                     <h3 className="text-3xl font-bold text-black font-montserrat">Our Story</h3>
                   </div>
                   <p className="text-gray-200 leading-relaxed text-lg">
-                    The Edward Athiyo Foundation was established in 2019 following the passing of Edward Lorika Athiyo, a prominent figure in Karamoja and Ugandan history, in July of that year. The Foundation aims to empower, train, guide, and preserve the Karamojong people in Nakale, improving their living conditions and honouring the legacy of the late Edward Lorika Athiyo.
+                    The Edward Athiyo Foundation was established in 2019 following the passing of Edward
+                    Lorika Athiyo, a prominent figure in Karamoja and Ugandan history, in July of that year.
+                    He was a distinguished Ugandan public servant, diplomat, and statesman whose career
+                    spanned colonial administration, independence negotiations, national leadership, and
+                    regional development. He played a pivotal role in securing Karamoja's inclusion in
+                    independent Uganda, served as District Commissioner across multiple regions, held
+                    ministerial portfolios, and represented Uganda internationally. A strong advocate for
+                    sustainable agriculture, trade, mining, and cultural preservation, he championed longterm development in Karamoja through policy reform, infrastructure, and community
+                    empowerment initiatives
+                    The Foundation aims to carry on the work of the late Edward Athiyo by empowering,
+                    training, guiding, and preserving the Karamojong people in Nakale, improving their living
+                    conditions and honouring his legacy
                   </p>
                 </div>
               </div>
-              {/* Pattern overlay */}
-              <div 
+              <div
                 className="absolute inset-0 opacity-10"
-                style={{ 
+                style={{
                   backgroundSize: '60px 60px'
                 }}
               ></div>
             </div>
           </div>
 
-          {/* Our Team - Card Layout */}
+          {/* Our Team - Card Layout  */}
           <div className="mb-6">
             <div className="text-center mb-8">
               <h3 className="text-5xl font-bold text-gray-900 font-montserrat mb-4">Meet Our Team</h3>
@@ -203,7 +218,6 @@ const About = () => {
                   onMouseLeave={() => setHoveredMember(null)}
                 >
                   <div className="bg-white rounded-3xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 h-full flex flex-col shadow-lg hover:shadow-2xl">
-                    {/* Photo */}
                     <div className="relative h-80 overflow-hidden bg-gradient-to-br from-orange-200 to-amber-200">
                       <Image
                         src={member.photo}
@@ -218,13 +232,11 @@ const About = () => {
                         }}
                       />
                       <div
-                        className={`absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent transition-opacity duration-300 ${
-                          hoveredMember === index ? 'opacity-60' : 'opacity-40'
-                        }`}
+                        className={`absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent transition-opacity duration-300 ${hoveredMember === index ? 'opacity-60' : 'opacity-40'
+                          }`}
                       ></div>
                     </div>
 
-                    {/* Info */}
                     <div className="p-6 bg-gradient-to-br from-white to-orange-50 flex-grow flex items-center justify-center">
                       <div className="text-center">
                         <h4 className="text-xl font-bold text-gray-900 font-montserrat mb-2">
@@ -241,7 +253,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Our Impact */}
+          {/* Our Impact Section */}
           <div className="w-full bg-white px-8 md:px-16 lg:px-20 py-16">
             <div className="text-center mb-4">
               <h3 className="text-5xl font-bold text-gray-900 font-montserrat mt-4">Our Impact</h3>
@@ -251,21 +263,23 @@ const About = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mt-20">
+            {/* All 4 Slideshow Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
               {impactCategories.map((category, index) => {
                 const currentSlide = activeSlides[index];
+
                 return (
                   <div
                     key={index}
-                    className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300"
+                    className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 h-80"
                   >
-                    <div className="relative h-96">
+                    <div className="relative h-full">
+                      {/* Image slideshow */}
                       {category.images.map((image, imgIndex) => (
                         <div
                           key={imgIndex}
-                          className={`absolute inset-0 transition-opacity duration-700 ${
-                            currentSlide === imgIndex ? 'opacity-100' : 'opacity-0'
-                          }`}
+                          className={`absolute inset-0 transition-opacity duration-700 ${currentSlide === imgIndex ? 'opacity-100' : 'opacity-0'
+                            }`}
                         >
                           <Image
                             src={image}
@@ -285,15 +299,17 @@ const About = () => {
 
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-300"></div>
 
+                      {/* Content overlay */}
                       <div className="absolute inset-0 flex flex-col justify-end p-6">
-                        <div className="transform transition-transform duration-300 group-hover:translate-y-[-8px] text-center">
+                        <div className="transform transition-transform duration-300 group-hover:translate-y-[-8px]">
                           <h4 className="text-2xl font-bold text-white font-montserrat mb-2">
                             {category.title}
                           </h4>
-                          <p className="text-white/90 text-base font-open-sans mb-4">
+                          <p className="text-base text-white/90 font-open-sans mb-4">
                             {category.description}
                           </p>
 
+                          {/* Slideshow indicators */}
                           <div className="flex justify-center gap-2 mt-2">
                             {category.images.map((_, imgIndex) => (
                               <button
@@ -301,11 +317,10 @@ const About = () => {
                                 onClick={() =>
                                   setActiveSlides((prev) => ({ ...prev, [index]: imgIndex }))
                                 }
-                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                  currentSlide === imgIndex
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === imgIndex
                                     ? 'bg-white w-6'
                                     : 'bg-white/50 hover:bg-white/75'
-                                }`}
+                                  }`}
                               />
                             ))}
                           </div>
