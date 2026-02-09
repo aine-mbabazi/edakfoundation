@@ -42,7 +42,7 @@ const About = () => {
     {
       name: "Jordan Longolio Mwaura",
       position: "Partnernsthips Coordinator",
-      photo: "/media/jordanloriko.jpeg"
+      photo: "/media/jordanloriko (cropped).jpeg"
     },
     {
       name: "Janelle Lorika Mwaura",
